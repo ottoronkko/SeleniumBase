@@ -1,13 +1,13 @@
 from seleniumbase import SB
 
 with SB(uc=True, ad_block=True, test=True) as sb:
-    url = "https://www.alltrails.com/"
+    url = "www.lansi-uusimaa.fi"
     sb.activate_cdp_mode(url)
     sb.sleep(1)
     sb.click_if_visible("button.osano-cm-close")
     sb.sleep(0.5)
     search_box = 'input[data-testid="homepage-search-box"]'
-    search_term = "Thundering Brook Falls"
+    search_term = "ylioppilas Aino Nordström"
     sb.type(search_box, search_term + " Trail")
     sb.sleep(1.5)
     sb.click('a span:contains("%s")' % search_term)
@@ -36,3 +36,4 @@ with SB(uc=True, ad_block=True, test=True) as sb:
     file_name = "thundering_brook_falls.html"
     sb.save_page_source(file_name, folder)
     print('"./%s/%s" was saved!' % (folder, file_name))
+
